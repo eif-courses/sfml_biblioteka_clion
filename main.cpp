@@ -93,7 +93,7 @@ int main() {
     // einamaji laika nuo startavimo arba paskutinio restarto
     time = clock.getElapsedTime();
 
-    if(time.asSeconds() > 2){
+    if (time.asSeconds() > 2) {
       text.setString("SAVE");
     }
 
@@ -105,7 +105,6 @@ int main() {
         case sf::Event::Closed:
           window.close();
           break;
-
         case sf::Event::KeyPressed:
           switch (event.key.code) {
             case sf::Keyboard::C:
@@ -127,9 +126,17 @@ int main() {
                                                   colors[color].g,
                                                   colors[color].b));
               break;
+
           }
-
-
+        case sf::Event::Resized: {
+          // Isaugoti tikslia raiska / rezoliucija, kad neiskraipytu vaizdo
+          sf::View view(window.getView());
+          sf::Vector2f size(window.getSize().x, window.getSize().y);
+          view.setSize(size);
+          view.setCenter(size / 2.0f);
+          window.setView(view);
+        }
+        break;
         case sf::Event::MouseButtonPressed:
           if (event.mouseButton.button == sf::Mouse::Left) {
 
@@ -141,7 +148,7 @@ int main() {
             canvas.draw(brush);
             canvas.display();
 
-            if(saveToFile.getGlobalBounds().contains((float)localPosition.x, (float)localPosition.y)){
+            if (saveToFile.getGlobalBounds().contains((float) localPosition.x, (float) localPosition.y)) {
               canvas.getTexture().copyToImage().saveToFile("manopav.png");
               text.setString("SAVED!");
               clock.restart();
@@ -168,15 +175,11 @@ int main() {
             canvas.draw(brush);
             canvas.display();
           }
-
           break;
-
       }
-
-
     }
 
-    window.clear(); // Kas bus atvaizduojama kai isvalome langa
+    window.clear(sf::Color::White); // Kas bus atvaizduojama kai isvalome langa
 
     window.draw(currentColor);
     window.draw(saveToFile);
