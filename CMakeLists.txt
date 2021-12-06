@@ -9,9 +9,9 @@ set(CMAKE_EXE_LINKER_FLAGS "-static -static-libgcc")
 set(SFML_STATIC_LIBRARIES TRUE)
 #----------------------------------------
 
-set(SFML_INCLUDE_DIR "C:/SFML Library/SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit/SFML-2.5.1/include")
-set(SFML_LIBRARY_DIR "C:/SFML Library/SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit/SFML-2.5.1/include/lib")
-set(SFML_DIR "C:/SFML Library/SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit/SFML-2.5.1/lib/cmake/SFML")
+set(SFML_INCLUDE_DIR "C:/Users/Marius/Desktop/SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit/SFML-2.5.1/include")
+set(SFML_LIBRARY_DIR "C:/Users/Marius/Desktop/SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit/SFML-2.5.1/include/lib")
+set(SFML_DIR "C:/Users/Marius/Desktop/SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit/SFML-2.5.1/lib/cmake/SFML")
 
 link_directories(SFML_LIBRARY_DIR)
 include_directories(SFML_INCLUDE_DIR)
